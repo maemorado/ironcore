@@ -1,8 +1,4 @@
 
-/* ========================================
-   1. GLOBAL SETTINGS
-======================================== */
-
 :root {
     --bg-color: #0b0b0b;
     --surface-color: #151515;
@@ -46,10 +42,6 @@ ul {
 }
 
 
-/* ========================================
-   2. NAVIGATION BAR
-======================================== */
-
 .header {
     position: relative;
     z-index: 100;
@@ -58,7 +50,9 @@ ul {
 }
 
 .navbar-container {
+    width: min(1180px, 90%);
     min-height: 84px;
+    margin-inline: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,10 +87,49 @@ ul {
     color: var(--primary-color);
 }
 
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
 
-/* ========================================
-   3. BUTTONS
-======================================== */
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    border-color: var(--primary-color);
+}
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: currentColor;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 
 .btn {
     display: inline-flex;
@@ -135,10 +168,6 @@ ul {
     color: var(--primary-color);
 }
 
-
-/* ========================================
-   4. HERO SECTION
-======================================== */
 
 .hero {
     min-height: 680px;
@@ -218,24 +247,71 @@ ul {
 }
 
 
-/* ========================================
-   5. TABLET RESPONSIVENESS
-======================================== */
-
 @media (max-width: 900px) {
-    .navbar {
+    .navbar-container {
         flex-wrap: wrap;
         padding-top: 18px;
         padding-bottom: 18px;
-        gap: 20px;
+        gap: 12px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .nav-join {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        order: 3;
     }
 
     .nav-links {
-        order: 3;
+        order: 4;
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px 22px;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: 0;
+        margin-top: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            max-height 0.35s ease,
+            margin-top 0.35s ease,
+            opacity 0.25s ease,
+            visibility 0s linear 0.35s;
+    }
+
+    .nav-links.is-open {
+        max-height: 420px;
+        margin-top: 6px;
+        opacity: 1;
+        visibility: visible;
+        transition:
+            max-height 0.35s ease,
+            margin-top 0.35s ease,
+            opacity 0.25s ease,
+            visibility 0s;
+    }
+
+    .nav-links li {
+        border-top: 1px solid var(--border-color);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 13px 2px;
+        font-size: 0.9rem;
     }
 
     .hero {
@@ -249,34 +325,33 @@ ul {
 }
 
 
-/* ========================================
-   6. MOBILE RESPONSIVENESS
-======================================== */
-
 @media (max-width: 480px) {
     .container {
         width: 90%;
     }
 
-    .navbar {
-        gap: 15px;
+    .navbar-container {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 10px;
     }
 
     .logo {
         font-size: 1.25rem;
     }
 
-    .navbar > .btn {
+    .nav-join {
         padding: 10px 14px;
         font-size: 0.8rem;
     }
 
-    .nav-links {
-        gap: 12px 18px;
+    .nav-toggle {
+        width: 40px;
+        height: 40px;
     }
 
     .nav-links a {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .hero {
@@ -325,10 +400,6 @@ ul {
 }
 
 
-/* ========================================
-   7. ACCESSIBILITY
-======================================== */
-
 a:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 4px;
@@ -349,8 +420,6 @@ a:focus-visible {
 }
 
 
-/* ABOUT SECTION */
-
 .section-padding {
     padding-top: 110px;
     padding-bottom: 110px;
@@ -367,8 +436,6 @@ a:focus-visible {
     align-items: center;
     gap: 75px;
 }
-
-/* About Image */
 
 .about-image {
     position: relative;
@@ -1176,6 +1243,7 @@ a:focus-visible {
     padding: 32px 27px;
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
+    cursor: pointer;
     transition:
         border-color 0.3s ease,
         transform 0.3s ease;
@@ -1187,7 +1255,7 @@ a:focus-visible {
 }
 
 .membership-featured {
-    border-color: var(--primary-color);
+    border-color: var(--border-color);
     background:
         linear-gradient(
             180deg,
@@ -1198,7 +1266,13 @@ a:focus-visible {
 }
 
 .membership-featured:hover {
+    border-color: #666;
+}
+
+.membership-card.selected,
+.membership-card.selected:hover {
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
 }
 
 /* Popular Badge */
@@ -1409,5 +1483,136 @@ a:focus-visible {
 
     .membership-card:hover {
         transform: none;
+    }
+}
+
+.contact {
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 70px;
+}
+
+.contact-header {
+    padding-top: 8px;
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+.contact-title span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.contact-intro {
+    max-width: 480px;
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+    padding: 32px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+}
+
+.form-field {
+    display: grid;
+    gap: 8px;
+}
+
+.form-field label {
+    color: var(--muted-color);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-field input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.selected-plan-summary {
+    padding: 13px 15px;
+    border: 1px dashed var(--border-color);
+    color: var(--muted-color);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+.selected-plan-summary.has-selection {
+    border-color: rgba(229, 57, 53, 0.6);
+    color: var(--text-color);
+}
+
+.form-message {
+    padding: 13px 15px;
+    border: 1px solid var(--border-color);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+.form-message.form-error {
+    border-color: rgba(229, 57, 53, 0.6);
+    background-color: rgba(229, 57, 53, 0.1);
+    color: #ff8a80;
+}
+
+.form-message.form-success {
+    border-color: rgba(129, 199, 132, 0.5);
+    background-color: rgba(129, 199, 132, 0.08);
+    color: #b9f6ca;
+}
+
+.contact-submit {
+    width: 100%;
+    min-height: 49px;
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-intro {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 650px) {
+    .contact-title {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+        letter-spacing: -1px;
+    }
+
+    .contact-form {
+        padding: 24px 20px;
     }
 }

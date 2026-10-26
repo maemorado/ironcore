@@ -10,14 +10,25 @@
     <header class="header">
         <nav class="navbar-container">
             <a href="" class="logo">IRON<span>CORE</span></a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="primary-navigation">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#trainers">Trainers</a></li>
                 <li><a href="#membership">Membership</a></li>
             </ul>
-            <a href="" class="btn btn-primary">Join Now</a>
+            <a href="" class="btn btn-primary nav-join">Join Now</a>
+            <button
+                type="button"
+                class="nav-toggle"
+                aria-label="Toggle navigation"
+                aria-controls="primary-navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
         <main>
             <section class="hero" id="home">
@@ -300,7 +311,7 @@
 
                             <div class="trainer-image">
                                 <img
-                                    src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=800&q=85"
+                                    src="https://i.pinimg.com/736x/ad/63/51/ad635156c6b7a8cda45e8e6193230c33.jpg?auto=format&fit=crop&w=800&q=85"
                                     alt="Fitness coach and strength training specialist"
                                     loading="lazy"
                                 >
@@ -327,7 +338,7 @@
                             <div class="trainer-info">
                                 <p class="trainer-specialty">STRENGTH & CONDITIONING</p>
 
-                                <h3>Alex Morgan</h3>
+                                <h3>Zach Morgan</h3>
 
                                 <p class="trainer-bio">
                                     Focused on strength development, proper
@@ -347,7 +358,7 @@
 
                             <div class="trainer-image">
                                 <img
-                                    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=85"
+                                    src="https://i.pinimg.com/736x/63/43/8a/63438a6984240bd087b2c7a614a48460.jpg?auto=format&fit=crop&w=800&q=70"
                                     alt="Fitness professional in a modern gym"
                                     loading="lazy"
                                 >
@@ -394,7 +405,7 @@
 
                             <div class="trainer-image">
                                 <img
-                                    src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=85"
+                                    src="https://i.pinimg.com/736x/b7/16/b3/b716b3c51915c2558ed92bb51bb843e2.jpg?auto=format&fit=crop&w=800&q=85"
                                     alt="Personal training and bodybuilding coach"
                                     loading="lazy"
                                 >
@@ -479,7 +490,7 @@
                     <div class="membership-grid">
 
                         <!-- Basic Plan -->
-                        <article class="membership-card">
+                        <article class="membership-card" data-plan="Essential">
                             <div class="membership-card-header">
                                 <p class="membership-tier">01 / STARTER</p>
 
@@ -519,7 +530,7 @@
                         </article>
 
                         <!-- Popular Plan -->
-                        <article class="membership-card membership-featured">
+                        <article class="membership-card membership-featured" data-plan="Pro">
 
                             <div class="membership-popular">
                                 MOST POPULAR
@@ -564,7 +575,7 @@
                         </article>
 
                         <!-- Premium Plan -->
-                        <article class="membership-card">
+                        <article class="membership-card" data-plan="Elite">
                             <div class="membership-card-header">
                                 <p class="membership-tier">03 / ELITE</p>
 
@@ -604,15 +615,79 @@
                         </article>
 
                     </div>
+                </div>
+            </section>
 
-                    <!-- Membership Note -->
-                    <div class="membership-note">
-                        <p>
-                            <span>ⓘ</span>
-                            Membership prices are sample rates for this website
-                            concept. Confirm actual rates and terms with the gym.
+            <section class="contact section-padding" id="contact">
+                <div class="container contact-container">
+
+                    <div class="contact-header">
+                        <p class="section-label">GET STARTED</p>
+
+                        <h2 class="contact-title">
+                            START YOUR
+                            <span>JOURNEY.</span>
+                        </h2>
+
+                        <p class="contact-intro">
+                            Choose a membership above, then leave your details.
+                            We will help you take the next step.
                         </p>
                     </div>
+
+                    <form class="contact-form" id="membership-form" novalidate>
+                        <input
+                            type="hidden"
+                            id="selected-plan"
+                            name="plan"
+                            value=""
+                        >
+
+                        <div class="form-field">
+                            <label for="member-name">FULL NAME</label>
+
+                            <input
+                                type="text"
+                                id="member-name"
+                                name="name"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="member-email">EMAIL ADDRESS</label>
+
+                            <input
+                                type="email"
+                                id="member-email"
+                                name="email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="member-phone">PHONE NUMBER</label>
+
+                            <input
+                                type="tel"
+                                id="member-phone"
+                                name="phone"
+                                autocomplete="tel"
+                            >
+                        </div>
+
+                        <p class="selected-plan-summary" id="selected-plan-summary">
+                            No membership plan selected yet.
+                        </p>
+
+                        <p class="form-message" id="form-message" role="alert" hidden></p>
+
+                        <button type="submit" class="btn btn-primary contact-submit">
+                            SUBMIT APPLICATION
+                        </button>
+                    </form>
 
                 </div>
             </section>
