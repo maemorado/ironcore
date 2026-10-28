@@ -80,7 +80,7 @@
     --color-information-200: #9797F2;
     --color-information-100: #C6C6F4;
 
-    --font-sans: Arial, Helvetica, sans-serif;
+    --font-sans: Roboto, Helvetica, sans-serif;
     --font-display: var(--font-sans);
 
     --weight-regular: 400;
