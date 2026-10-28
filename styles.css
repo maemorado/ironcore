@@ -1,5 +1,6 @@
 
 :root {
+    /* Legacy tokens (preserved; still used by existing component styles) */
     --bg-color: #0b0b0b;
     --surface-color: #151515;
     --primary-color: #e53935;
@@ -7,6 +8,121 @@
     --text-color: #ffffff;
     --muted-color: #a5a5a5;
     --border-color: #292929;
+
+    --color-primary: #E53935;
+    --color-primary-900: #2E0707;
+    --color-primary-800: #5C0E0E;
+    --color-primary-700: #8A1515;
+    --color-primary-600: #B81C1C;
+    --color-primary-500: #E72323;
+    --color-primary-400: #F25656;
+    --color-primary-300: #F37E7E;
+    --color-primary-200: #F3A5A5;
+    --color-primary-100: #F4CDCD;
+
+    /* Secondary */
+    --color-secondary: #6B7280;
+    --color-secondary-900: #141618;
+    --color-secondary-800: #292C31;
+    --color-secondary-700: #3D4149;
+    --color-secondary-600: #525762;
+    --color-secondary-500: #666D7A;
+    --color-secondary-400: #8C919C;
+    --color-secondary-300: #A6AAB2;
+    --color-secondary-200: #CCCCCC;
+    --color-secondary-100: #DADCDE;
+
+    /* Success */
+    --color-success: #008000;
+    --color-success-900: #001800;
+    --color-success-800: #003100;
+    --color-success-700: #004900;
+    --color-success-600: #007A00;
+    --color-success-500: #007A00;
+    --color-success-400: #3A9C3A;
+    --color-success-300: #69B269;
+    --color-success-200: #93C693;
+    --color-success-100: #C6DEC6;
+
+    /* Warning */
+    --color-warning: #FFCE18;
+    --color-warning-900: #312705;
+    --color-warning-800: #624F09;
+    --color-warning-700: #92760E;
+    --color-warning-600: #C39E12;
+    --color-warning-500: #F4C517;
+    --color-warning-400: #FDD84C;
+    --color-warning-300: #FBDF77;
+    --color-warning-200: #F9E6A0;
+    --color-warning-100: #F7EDCB;
+
+    /* Error */
+    --color-error: #EF4444;
+    --color-error-900: #2E0707;
+    --color-error-800: #5C0E0E;
+    --color-error-700: #8A1515;
+    --color-error-600: #B81C1C;
+    --color-error-500: #E72323;
+    --color-error-400: #F25656;
+    --color-error-300: #F37E7E;
+    --color-error-200: #F3A5A5;
+    --color-error-100: #F4CDCD;
+
+    /* Information */
+    --color-information: #0000EE;
+    --color-information-900: #000011;
+    --color-information-800: #00005B;
+    --color-information-700: #000089;
+    --color-information-600: #0000B6;
+    --color-information-500: #0000E4;
+    --color-information-400: #3A3AF0;
+    --color-information-300: #6969F2;
+    --color-information-200: #9797F2;
+    --color-information-100: #C6C6F4;
+
+    --font-sans: Arial, Helvetica, sans-serif;
+    --font-display: var(--font-sans);
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    --weight-extrabold: 800;
+    --weight-black: 900;
+
+    --text-2xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 0.9375rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+
+    --text-h1: clamp(3rem, 7vw, 6rem);
+    --text-h1-sm: clamp(2.8rem, 12vw, 4rem);
+    --text-h2: clamp(2.5rem, 5vw, 4rem);
+    --text-h2-sm: clamp(2.4rem, 10vw, 3.5rem);
+    --text-h3: var(--text-2xl);
+    --text-h4: var(--text-lg);
+    --text-h5: var(--text-md);
+    --text-h6: var(--text-2xs);
+
+    /* Line heights */
+    --leading-none: 0.98;
+    --leading-tight: 1.05;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+    --leading-body: 1.6;
+    --leading-relaxed: 1.8;
+    --leading-loose: 1.9;
+
+    /* Tracking */
+    --tracking-tighter: -0.03em;
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-label: 0.1em;
+    --tracking-overline: 0.22em;
+    --tracking-wide: 0.3em;
 }
 
 * {
@@ -21,10 +137,10 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: var(--leading-body);
 }
 
 a {
@@ -61,8 +177,8 @@ ul {
 
 .logo {
     font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: -1px;
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-tighter);
     white-space: nowrap;
 }
 
@@ -78,8 +194,8 @@ ul {
 
 .nav-links a {
     color: var(--muted-color);
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
     transition: color 0.3s ease;
 }
 
@@ -137,8 +253,8 @@ ul {
     align-items: center;
     padding: 13px 24px;
     border: 1px solid transparent;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
     cursor: pointer;
     transition:
         background-color 0.3s ease,
@@ -193,18 +309,18 @@ ul {
 
 .eyebrow {
     color: var(--primary-color);
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 4px;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-wide);
     margin-bottom: 20px;
 }
 
 .hero h1 {
     max-width: 750px;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 900;
-    line-height: 0.98;
-    letter-spacing: -3px;
+    font-size: var(--text-h1);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-none);
+    letter-spacing: var(--tracking-tighter);
 }
 
 .hero h1 span {
@@ -216,8 +332,8 @@ ul {
     max-width: 520px;
     color: var(--muted-color);
     margin-top: 25px;
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
 }
 
 .hero-actions {
@@ -235,14 +351,14 @@ ul {
 }
 
 .hero-stats h3 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    line-height: 1.3;
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-snug);
 }
 
 .hero-stats p {
     color: var(--muted-color);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     margin-top: 5px;
 }
 
@@ -311,7 +427,7 @@ ul {
     .nav-links a {
         display: block;
         padding: 13px 2px;
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .hero {
@@ -337,12 +453,12 @@ ul {
     }
 
     .logo {
-        font-size: 1.25rem;
+        font-size: var(--text-xl);
     }
 
     .nav-join {
         padding: 10px 14px;
-        font-size: 0.8rem;
+        font-size: var(--text-2xs);
     }
 
     .nav-toggle {
@@ -351,7 +467,7 @@ ul {
     }
 
     .nav-links a {
-        font-size: 0.85rem;
+        font-size: var(--text-sm);
     }
 
     .hero {
@@ -365,17 +481,17 @@ ul {
     }
 
     .eyebrow {
-        font-size: 0.75rem;
+        font-size: var(--text-2xs);
         letter-spacing: 3px;
     }
 
     .hero h1 {
-        font-size: clamp(2.8rem, 12vw, 4rem);
-        letter-spacing: -1.5px;
+        font-size: var(--text-h1-sm);
+        letter-spacing: var(--tracking-tight);
     }
 
     .hero-description {
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .hero-actions {
@@ -391,11 +507,11 @@ ul {
     }
 
     .hero-stats h3 {
-        font-size: 1.5rem;
+        font-size: var(--text-2xl);
     }
 
     .hero-stats p {
-        font-size: 0.78rem;
+        font-size: var(--text-2xs);
     }
 }
 
@@ -469,32 +585,32 @@ a:focus-visible {
     padding: 18px;
     background-color: rgba(11, 11, 11, 0.9);
     border-left: 3px solid var(--primary-color);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-label);
 }
 
 .label-number {
     color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-black);
 }
 
 /* About Content */
 
 .section-label {
     color: var(--primary-color);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 4px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-wide);
     margin-bottom: 18px;
 }
 
 .about-content h2 {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 900;
+    font-weight: var(--weight-black);
     line-height: 1.08;
-    letter-spacing: -1.5px;
+    letter-spacing: var(--tracking-tighter);
     margin-bottom: 25px;
 }
 
@@ -505,8 +621,8 @@ a:focus-visible {
 
 .about-description {
     color: var(--muted-color);
-    font-size: 0.95rem;
-    line-height: 1.9;
+    font-size: var(--text-md);
+    line-height: var(--leading-loose);
     margin-bottom: 18px;
 }
 
@@ -535,18 +651,19 @@ a:focus-visible {
     background-color: rgba(229, 57, 53, 0.1);
     border: 1px solid rgba(229, 57, 53, 0.35);
     color: var(--primary-color);
-    font-size: 0.9rem;
-    font-weight: 900;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-black);
 }
 
 .about-feature h3 {
-    font-size: 1rem;
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
     margin-bottom: 5px;
 }
 
 .about-feature p {
     color: var(--muted-color);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     line-height: 1.7;
 }
 
@@ -595,12 +712,12 @@ a:focus-visible {
         left: 15px;
         right: 15px;
         padding: 12px;
-        font-size: 0.65rem;
-        letter-spacing: 1px;
+        font-size: var(--text-2xs);
+        letter-spacing: var(--tracking-label);
     }
 
     .label-number {
-        font-size: 1.2rem;
+        font-size: var(--text-xl);
     }
 
     .about-content h2 {
@@ -645,10 +762,10 @@ a:focus-visible {
 }
 
 .programs-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -2px;
+    font-size: var(--text-h2);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
 }
 
 .programs-title span {
@@ -659,7 +776,7 @@ a:focus-visible {
     max-width: 410px;
     color: var(--muted-color);
     font-size: 0.95rem;
-    line-height: 1.9;
+    line-height: var(--leading-loose);
     padding-bottom: 5px;
 }
 
@@ -734,7 +851,7 @@ a:focus-visible {
     left: 20px;
     color: var(--text-color);
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: var(--weight-black);
 }
 
 /* Program Content */
@@ -745,24 +862,24 @@ a:focus-visible {
 
 .program-category {
     color: var(--primary-color);
-    font-size: 0.7rem;
-    font-weight: 800;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
     letter-spacing: 2px;
     margin-bottom: 12px;
 }
 
 .program-content h3 {
     font-size: 1.35rem;
-    font-weight: 800;
-    line-height: 1.3;
+    font-weight: var(--weight-extrabold);
+    line-height: var(--leading-snug);
     margin-bottom: 15px;
 }
 
 .program-description {
     min-height: 100px;
     color: var(--muted-color);
-    font-size: 0.88rem;
-    line-height: 1.8;
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
 }
 
 /* Program Link */
@@ -776,9 +893,9 @@ a:focus-visible {
     margin-top: 20px;
     border-top: 1px solid var(--border-color);
     color: var(--text-color);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-label);
     transition: color 0.3s ease;
 }
 
@@ -810,9 +927,9 @@ a:focus-visible {
 
 .programs-bottom p {
     color: var(--muted-color);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-label);
 }
 
 /* Tablet */
@@ -842,8 +959,8 @@ a:focus-visible {
     }
 
     .programs-title {
-        font-size: clamp(2.4rem, 10vw, 3.5rem);
-        letter-spacing: -1px;
+        font-size: var(--text-h2-sm);
+        letter-spacing: var(--tracking-tight);
     }
 
     .programs-intro {
@@ -871,7 +988,7 @@ a:focus-visible {
     }
 
     .programs-bottom p {
-        line-height: 1.8;
+        line-height: var(--leading-relaxed);
     }
 }
 
@@ -912,10 +1029,10 @@ a:focus-visible {
 }
 
 .trainers-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -2px;
+    font-size: var(--text-h2);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
 }
 
 .trainers-title span {
@@ -926,8 +1043,8 @@ a:focus-visible {
 .trainers-intro {
     max-width: 410px;
     color: var(--muted-color);
-    font-size: 0.95rem;
-    line-height: 1.9;
+    font-size: var(--text-md);
+    line-height: var(--leading-loose);
     padding-bottom: 5px;
 }
 
@@ -1003,7 +1120,7 @@ a:focus-visible {
     left: 20px;
     color: var(--text-color);
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: var(--weight-black);
 }
 
 /* Trainer Social Links */
@@ -1026,8 +1143,8 @@ a:focus-visible {
     background-color: rgba(15, 15, 15, 0.9);
     border: 1px solid #555;
     color: var(--text-color);
-    font-size: 0.7rem;
-    font-weight: 800;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
     transition:
         background-color 0.3s ease,
         border-color 0.3s ease;
@@ -1046,23 +1163,23 @@ a:focus-visible {
 
 .trainer-specialty {
     color: var(--primary-color);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-label);
     margin-bottom: 10px;
 }
 
 .trainer-info h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: var(--text-h3);
+    font-weight: var(--weight-extrabold);
     margin-bottom: 12px;
 }
 
 .trainer-bio {
     min-height: 75px;
     color: var(--muted-color);
-    font-size: 0.85rem;
-    line-height: 1.8;
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
 }
 
 .trainer-meta {
@@ -1076,9 +1193,9 @@ a:focus-visible {
 }
 
 .trainer-meta > span:first-child {
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-label);
 }
 
 .trainer-arrow {
@@ -1105,14 +1222,14 @@ a:focus-visible {
 }
 
 .trainers-cta h3 {
-    font-size: 1.25rem;
-    font-weight: 900;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-black);
     margin-bottom: 5px;
 }
 
 .trainers-cta p {
     color: var(--muted-color);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
 }
 
 /* Tablet */
@@ -1142,12 +1259,12 @@ a:focus-visible {
     }
 
     .trainers-title {
-        font-size: clamp(2.4rem, 10vw, 3.5rem);
-        letter-spacing: -1px;
+        font-size: var(--text-h2-sm);
+        letter-spacing: var(--tracking-tight);
     }
 
     .trainers-intro {
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .trainers-grid {
@@ -1205,10 +1322,10 @@ a:focus-visible {
 }
 
 .membership-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -2px;
+    font-size: var(--text-h2);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
     margin-bottom: 22px;
 }
 
@@ -1220,8 +1337,8 @@ a:focus-visible {
     max-width: 570px;
     margin-inline: auto;
     color: var(--muted-color);
-    font-size: 0.95rem;
-    line-height: 1.9;
+    font-size: var(--text-md);
+    line-height: var(--leading-loose);
 }
 
 /* Pricing Grid */
@@ -1284,9 +1401,9 @@ a:focus-visible {
     padding: 8px 13px;
     background-color: var(--primary-color);
     color: var(--text-color);
-    font-size: 0.65rem;
-    font-weight: 900;
-    letter-spacing: 1px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-label);
 }
 
 /* Plan Header */
@@ -1297,22 +1414,22 @@ a:focus-visible {
 
 .membership-tier {
     color: var(--primary-color);
-    font-size: 0.7rem;
-    font-weight: 800;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
     letter-spacing: 2px;
     margin-bottom: 16px;
 }
 
 .membership-card h3 {
-    font-size: 1.8rem;
-    font-weight: 900;
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-black);
     margin-bottom: 8px;
 }
 
 .membership-plan-description {
     min-height: 48px;
     color: var(--muted-color);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     line-height: 1.7;
 }
 
@@ -1329,19 +1446,19 @@ a:focus-visible {
 .currency {
     color: var(--primary-color);
     font-size: 1.4rem;
-    font-weight: 800;
+    font-weight: var(--weight-extrabold);
 }
 
 .amount {
     font-size: clamp(2.2rem, 3vw, 3rem);
-    font-weight: 900;
+    font-weight: var(--weight-black);
     line-height: 1.2;
-    letter-spacing: -1.5px;
+    letter-spacing: var(--tracking-tighter);
 }
 
 .period {
     color: var(--muted-color);
-    font-size: 0.8rem;
+    font-size: var(--text-2xs);
 }
 
 /* Plan Button */
@@ -1369,9 +1486,9 @@ a:focus-visible {
 
 .membership-includes {
     color: var(--muted-color);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 1.3px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-label);
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -1387,7 +1504,7 @@ a:focus-visible {
     gap: 11px;
     color: var(--text-color);
     font-size: 0.84rem;
-    line-height: 1.6;
+    line-height: var(--leading-body);
 }
 
 .membership-features li span {
@@ -1448,12 +1565,12 @@ a:focus-visible {
     }
 
     .membership-title {
-        font-size: clamp(2.4rem, 10vw, 3.5rem);
-        letter-spacing: -1px;
+        font-size: var(--text-h2-sm);
+        letter-spacing: var(--tracking-tight);
     }
 
     .membership-intro {
-        font-size: 0.9rem;
+        font-size: var(--text-sm);
     }
 
     .membership-grid {
@@ -1503,10 +1620,10 @@ a:focus-visible {
 }
 
 .contact-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -2px;
+    font-size: var(--text-h2);
+    font-weight: var(--weight-black);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
     margin-bottom: 22px;
 }
 
@@ -1518,8 +1635,8 @@ a:focus-visible {
 .contact-intro {
     max-width: 480px;
     color: var(--muted-color);
-    font-size: 0.95rem;
-    line-height: 1.9;
+    font-size: var(--text-md);
+    line-height: var(--leading-loose);
 }
 
 .contact-form {
@@ -1537,9 +1654,9 @@ a:focus-visible {
 
 .form-field label {
     color: var(--muted-color);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 1.3px;
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: var(--tracking-label);
 }
 
 .form-field input {
@@ -1549,7 +1666,7 @@ a:focus-visible {
     background-color: var(--bg-color);
     color: var(--text-color);
     font: inherit;
-    font-size: 0.9rem;
+    font-size: var(--text-base);
     transition: border-color 0.3s ease;
 }
 
@@ -1562,7 +1679,7 @@ a:focus-visible {
     padding: 13px 15px;
     border: 1px dashed var(--border-color);
     color: var(--muted-color);
-    font-size: 0.82rem;
+    font-size: var(--text-sm);
     line-height: 1.7;
 }
 
@@ -1574,7 +1691,7 @@ a:focus-visible {
 .form-message {
     padding: 13px 15px;
     border: 1px solid var(--border-color);
-    font-size: 0.82rem;
+    font-size: var(--text-sm);
     line-height: 1.7;
 }
 
@@ -1608,8 +1725,8 @@ a:focus-visible {
 
 @media (max-width: 650px) {
     .contact-title {
-        font-size: clamp(2.4rem, 10vw, 3.5rem);
-        letter-spacing: -1px;
+        font-size: var(--text-h2-sm);
+        letter-spacing: var(--tracking-tight);
     }
 
     .contact-form {
